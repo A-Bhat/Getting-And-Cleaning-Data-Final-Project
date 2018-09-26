@@ -43,6 +43,7 @@ train_test<-rbind(train_df, test_df)
 #Setting the column names
 col<-grep(".*mean().*|.*std().*", features$V2, value = T)
 features_reqd_names<-gsub("mean\\(\\)", "Mean", col)
+features_reqd_names<-gsub("meanFreq\\(\\)", "MeanFreq", features_reqd_names)
 features_reqd_names<-gsub("std\\(\\)", "SD", features_reqd_names)
 colnames(train_test)<-c("Subject", "Activity", features_reqd_names)
 
